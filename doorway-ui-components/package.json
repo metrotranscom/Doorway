@@ -61,7 +61,7 @@
     "react-hook-form": "^6.15.5",
     "react-remove-scroll": "2.5.4",
     "react-transition-group": "^4.4.1",
-    "tailwindcss": "2.2.10",
+    "tailwindcss": "4.0.0",
     "tailwindcss-rtl": "^0.9.0"
   },
   "prettier": {
