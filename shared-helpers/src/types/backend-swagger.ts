@@ -3876,6 +3876,9 @@ export interface Listing {
 
   /**  */
   communityDisclaimerDescription?: string
+
+  /**  */
+  homeType?: HomeTypeEnum
 }
 
 export interface PaginationMeta {
@@ -4351,6 +4354,9 @@ export interface ListingCreate {
   communityDisclaimerDescription?: string
 
   /**  */
+  homeType?: HomeTypeEnum
+
+  /**  */
   listingMultiselectQuestions?: IdDTO[]
 
   /**  */
@@ -4635,6 +4641,9 @@ export interface ListingUpdate {
 
   /**  */
   communityDisclaimerDescription?: string
+
+  /**  */
+  homeType?: HomeTypeEnum
 
   /**  */
   listingMultiselectQuestions?: IdDTO[]
@@ -5287,12 +5296,6 @@ export interface JurisdictionCreate {
   enableGeocodingRadiusMethod?: boolean
 
   /**  */
-  enableAccessibilityFeatures: boolean
-
-  /**  */
-  enableUtilitiesIncluded: boolean
-
-  /**  */
   allowSingleUseCodeLogin: boolean
 
   /**  */
@@ -5341,12 +5344,6 @@ export interface JurisdictionUpdate {
 
   /**  */
   enableGeocodingRadiusMethod?: boolean
-
-  /**  */
-  enableAccessibilityFeatures: boolean
-
-  /**  */
-  enableUtilitiesIncluded: boolean
 
   /**  */
   allowSingleUseCodeLogin: boolean
@@ -5429,12 +5426,6 @@ export interface Jurisdiction {
 
   /**  */
   enableGeocodingRadiusMethod?: boolean
-
-  /**  */
-  enableAccessibilityFeatures: boolean
-
-  /**  */
-  enableUtilitiesIncluded: boolean
 
   /**  */
   allowSingleUseCodeLogin: boolean
@@ -6636,6 +6627,13 @@ export enum UnitTypeEnum {
 export enum UnitRentTypeEnum {
   "fixed" = "fixed",
   "percentageOfIncome" = "percentageOfIncome",
+}
+
+export enum HomeTypeEnum {
+  "apartment" = "apartment",
+  "duplex" = "duplex",
+  "house" = "house",
+  "townhome" = "townhome",
 }
 
 export enum AfsView {

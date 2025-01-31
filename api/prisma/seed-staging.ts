@@ -38,6 +38,8 @@ import { translationFactory } from './seed-helpers/translation-factory';
 import { unitAccessibilityPriorityTypeFactoryAll } from './seed-helpers/unit-accessibility-priority-type-factory';
 import { unitTypeFactoryAll } from './seed-helpers/unit-type-factory';
 import { userFactory } from './seed-helpers/user-factory';
+import { featureFlagFactory } from './seed-helpers/feature-flag-factory';
+
 export const stagingSeed = async (
   prismaClient: PrismaClient,
   jurisdictionName: string,
@@ -133,6 +135,28 @@ export const stagingSeed = async (
     Sonoma: sonomaCounty.id,
     'San Francisco': sanFranciscoCounty.id,
   };
+  // Seed feature flags
+  await prismaClient.featureFlags.create({
+    data: featureFlagFactory('homeType', true, 'Home Type feature', [
+      jurisdiction.id,
+    ]),
+  });
+  await prismaClient.featureFlags.create({
+    data: featureFlagFactory(
+      'enableAccessibilityFeatures',
+      true,
+      "When true, the 'accessibility features' section is displayed in listing creation/edit and the public listing view",
+      [jurisdiction.id],
+    ),
+  });
+  await prismaClient.featureFlags.create({
+    data: featureFlagFactory(
+      'enableUtilitiesIncluded',
+      true,
+      "When true, the 'utilities included' section is displayed in listing creation/edit and the public listing view",
+      [jurisdiction.id],
+    ),
+  });
   // create admin user
   await prismaClient.userAccounts.create({
     data: await userFactory({
