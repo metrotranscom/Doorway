@@ -248,7 +248,6 @@ function ListingsSearchCombined(props: ListingsSearchCombinedProps) {
   }, [isFirstBoundsLoad])
 
   const onFormSubmit = (params: ListingSearchParams) => {
-    setIsLoading(true)
     setSearchFilter(params)
   }
 
